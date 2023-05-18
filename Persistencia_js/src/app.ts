@@ -34,7 +34,6 @@ var service = new Service();
 service.start();
 
 /* Criação das rotas para o serviço. */
-app.get('/list', listProjectHandler);
 app.post('/add', addProjectHandler);
 
 /* Execução do servidor */
@@ -42,14 +41,7 @@ app.listen(port, listenHandler);
 
 /* Tratadores de requisição */
 
-/* Tratador de listagem */
-async function listProjectHandler(req, res){ 
-    console.log("Requisição de listagem recebida."); //Para debug somente.
-    let livros = await service.listAll();  
-    let list_livro = JSON.stringify(livros);
-    res.setHeader('Content-Type', 'application/json');
-    res.end(list_livro);     
-}
+
 
 /* Tratador de adição */
 async function addProjectHandler(req,res){

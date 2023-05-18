@@ -35,7 +35,6 @@ service.start();
 
 /* Criação das rotas para o serviço. */
 app.get('/list', listProjectHandler);
-app.post('/add', addProjectHandler);
 
 /* Execução do servidor */
 app.listen(port, listenHandler);
@@ -49,19 +48,6 @@ async function listProjectHandler(req, res){
     let list_livro = JSON.stringify(livros);
     res.setHeader('Content-Type', 'application/json');
     res.end(list_livro);     
-}
-
-/* Tratador de adição */
-async function addProjectHandler(req,res){
-    console.log("Requisição de inserção recebida.."); // Para debug somente.
-    let novo_livro = new Livro();  
-    for(let key in req.body){
-        novo_livro[key] = req.body[key];
-    } 
-    await service.insert(novo_livro);
-    let novo_livro_i = JSON.stringify(novo_livro);
-    res.setHeader('Content-Type', 'application/json');
-    res.end(novo_livro_i);     
 }
 
 

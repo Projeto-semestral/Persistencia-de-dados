@@ -12,9 +12,5 @@ export class Service{
     async insert(livro: Livro){
         await MariaDBDataSource.manager.save(livro);        
     }
-    async listAll(){
-       let list = await MariaDBDataSource.manager.find(Livro);
-       return list;
-    }
 }
 

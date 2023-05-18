@@ -9,9 +9,6 @@ export class Service{
                 console.error("Erro de inicialização da fonte de dados!!");
             }) 
     }
-    async insert(livro: Livro){
-        await MariaDBDataSource.manager.save(livro);        
-    }
     async listAll(){
        let list = await MariaDBDataSource.manager.find(Livro);
        return list;
