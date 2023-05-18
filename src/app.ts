@@ -46,9 +46,9 @@ app.listen(port, listenHandler);
 async function listProjectHandler(req, res){ 
     console.log("Requisição de listagem recebida."); //Para debug somente.
     let livros = await service.listAll();  
-    let usr_list = JSON.stringify(livros);
+    let list_livro = JSON.stringify(livros);
     res.setHeader('Content-Type', 'application/json');
-    res.end(usr_list);     
+    res.end(list_livro);     
 }
 
 /* Tratador de adição */
